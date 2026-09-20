@@ -23,7 +23,7 @@ void RCC_Config_72MHz(void)
 	
 	// pll mul: on
 	RCC_CR |= (1UL << 24);
-	while((RCC_CFGR & (3UL << 2)) != (2UL << 2))
+	while(0UL == (RCC_CR & (1UL << 25)))
 	{
 		// not thing to do
 	};
@@ -36,7 +36,7 @@ void RCC_Config_72MHz(void)
 	RCC_CFGR |= (1UL << 1);
 	
 	// wait status
-	while (0UL == (RCC_CFGR & (2UL << 2))) 
+	while ((RCC_CFGR & (3UL << 2)) != (2UL << 2)) 
 	{
 		// not thing to do
 	}

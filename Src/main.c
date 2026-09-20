@@ -3,32 +3,34 @@
 
 #include "RCC.h"
 
+//GPIOA
+#define GPIOA_BASE (0x40010800)
+#define GPIOA_CRH (*(volatile uint32_t*)(GPIOA_BASE + 0x04))
+
 //GPIOC
 #define GPIOC_CRH (*(volatile uint32_t*)(0x40011000 + 0x04))
 #define GPIOC_ODR (*(volatile uint32_t*)(0x40011000 + 0x0C))
  
 void m_delay(volatile uint32_t time);
-void m_delay(volatile uint32_t time) {
+void m_delay(volatile uint32_t time) 
+{
 	while(time--);
 }
 
-int main() {
+int main() 
+{
 	RCC_Config_72MHz();
 	RCC_enable_port_A();
 	
-	// configure pin 13 port c
-	GPIOC_CRH |= (1UL << 20);
-	GPIOC_CRH |= (1UL << 21);
+	RCC_CFGR |= (1UL << 26);
 	
-	GPIOC_CRH &= ~(1UL << 22);
-	GPIOC_CRH &= ~(1UL << 23);
+	GPIOA_CRH |= (1UL << 0);
+	GPIOA_CRH |= (1UL << 1);
+
+	GPIOA_CRH &= ~(1UL << 2);
+	GPIOA_CRH |= (1UL << 3);
 	
-	GPIOC_ODR |= (1UL << 13);
-	
-	while(1) {
-		GPIOC_ODR &= ~(1UL << 13);
-		m_delay(10000000);
-		GPIOC_ODR |= (1UL << 13);
-		m_delay(10000000);
+	while(1) 
+	{
 	}
 }
