@@ -13,7 +13,8 @@ void m_delay(volatile uint32_t time) {
 }
 
 int main() {
-	RCC_enable_port_C();
+	RCC_Config_72MHz();
+	RCC_enable_port_A();
 	
 	// configure pin 13 port c
 	GPIOC_CRH |= (1UL << 20);
