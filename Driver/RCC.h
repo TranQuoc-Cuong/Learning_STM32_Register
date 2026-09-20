@@ -3,7 +3,7 @@
 
 #include <stdint.h>
 
-#define RCC_BASE 0x40021000
+#define RCC_BASE (0x40021000UL)
 
 #define RCC_CR_BASE       0x00
 #define RCC_CFGR_BASE     0x04
@@ -27,6 +27,12 @@
 #define RCC_BDCR      (*((volatile uint32_t*)(RCC_BASE + RCC_BDCR_BASE)))
 #define RCC_CSR       (*((volatile uint32_t*)(RCC_BASE + RCC_CSR_BASE)))
 	
+#define FLASH_ACR_BASE (0x40022000UL)
+
+#define FLASH_ACR (*(volatile uint32_t*)(FLASH_ACR_BASE))
+
+void RCC_Config_72MHz(void);
+
 void RCC_enable_port_A(void);
 void RCC_enable_port_B(void);
 void RCC_enable_port_C(void);
