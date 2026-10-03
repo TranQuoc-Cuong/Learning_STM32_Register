@@ -42,6 +42,11 @@ void RCC_Config_72MHz(void)
 	}
 }
 
+void RCC_enable_AFIO(void)
+{
+	RCC_APB2ENR |= (1UL << 0);
+}
+
 void RCC_enable_port_A(void) 
 {
 	RCC_APB2ENR |= (1UL << 2);
