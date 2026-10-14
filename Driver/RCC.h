@@ -39,4 +39,6 @@ void RCC_enable_port_A(void);
 void RCC_enable_port_B(void);
 void RCC_enable_port_C(void);
 
+void RCC_enable_TIM2(void);
+
 #endif //_RCC_H_

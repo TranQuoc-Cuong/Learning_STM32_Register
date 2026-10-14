@@ -61,3 +61,9 @@ void RCC_enable_port_C(void)
 {
 	RCC_APB2ENR |= (1UL << 4);
 }
+
+void RCC_enable_TIM2(void)
+{
+	RCC_APB1ENR |= (1UL << 0);
+}
+
