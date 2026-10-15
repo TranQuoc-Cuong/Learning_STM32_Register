@@ -29,5 +29,6 @@
 void TIM2_init_IT(void);
 
 void TIM2_IRQHandler(void);
+void TIM2_delay_ms(uint32_t time_ms);
 
 #endif // __TIM_H

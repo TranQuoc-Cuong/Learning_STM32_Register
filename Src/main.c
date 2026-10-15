@@ -18,13 +18,12 @@ int main()
 	RCC_enable_TIM2();
 	
 	GPIO_config(GPIO_C_BASE, GPIO_PIN_13, GPIO_MODE_OUTPUT_PP);
-	TIM2_init_IT();
+	
 	while(1) {
-		if (1 == blink_status) {
-			GPIO_write_pin(GPIO_C_BASE, GPIO_PIN_13, 1);
-		} else {
-			GPIO_write_pin(GPIO_C_BASE, GPIO_PIN_13, 0);
-		}
-
+	GPIO_write_pin(GPIO_C_BASE, GPIO_PIN_13, 1);
+	TIM2_delay_ms(2000);	
+	
+	GPIO_write_pin(GPIO_C_BASE, GPIO_PIN_13, 0);	
+	TIM2_delay_ms(2000);	
 	}
 }
