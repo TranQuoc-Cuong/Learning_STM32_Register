@@ -2,8 +2,6 @@
 
 #include "EXTI.h"
 
-extern volatile uint8_t blink_status; 
-
 void TIM2_init_IT(void) 
 {
   TIM2_PSC = 7999;
@@ -20,12 +18,8 @@ void TIM2_IRQHandler(void)
 {
   if ((TIM2_SR & (1UL << 0)) == (1UL << 0)) {
       // doing something
-			if (1 == blink_status) {
-				blink_status = 0;
-			} else {
-				blink_status = 1;
-			}
-			
+
+			// end doing something
 			TIM2_SR &= ~(1UL << 0);
   }
 }
