@@ -67,3 +67,13 @@ void RCC_enable_TIM2(void)
 	RCC_APB1ENR |= (1UL << 0);
 }
 
+void RCC_enable_ADC1(void) 
+{
+	RCC_APB2ENR |= (1UL << 9);
+}
+
+
+void RCC_enable_ADC2(void)
+{
+	RCC_APB2ENR |= (1UL << 10);
+}
