@@ -82,3 +82,8 @@ void EXTI0_IRQHandler(void)
 		EXTI->PR.REG = (1UL << 0);
 	}
 }
+
+void NVIC_enable_USART01(void)
+{
+	NVIC_ISER1 |= (1UL << (37 - 32));
+}

@@ -23,5 +23,6 @@ typedef struct {
 
 void EXTI_init(uint32_t port, uint16_t gpio_pin, uint8_t type) ;
 void EXTI0_IRQHandler(void);
+void NVIC_enable_USART01(void);
 
 #endif // __EXTI_H

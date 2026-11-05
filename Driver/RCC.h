@@ -44,4 +44,6 @@ void RCC_enable_TIM2(void);
 void RCC_enable_ADC1(void);
 void RCC_enable_ADC2(void);
 
+void RCC_enable_UART1(void);
+
 #endif //_RCC_H_
