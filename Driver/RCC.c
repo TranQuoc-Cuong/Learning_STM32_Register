@@ -77,3 +77,8 @@ void RCC_enable_ADC2(void)
 {
 	RCC_APB2ENR |= (1UL << 10);
 }
+
+void RCC_enable_UART1(void)
+{
+	RCC_APB2ENR |= (1UL << 14);
+}
